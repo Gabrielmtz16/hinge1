@@ -1,0 +1,79 @@
+#VRML_SIM R2019a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.35823111851381245 0.9164243834415118 0.17842873973154696 0.9604045805046366
+  position 1.7434816968411135 0.9560150568964363 1.0130570085771828
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+Solid {
+  translation 0 0.5100000000000001 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0 0
+      }
+      geometry Box {
+        size 1 0.01 0.1
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor 0.5 0 0
+        minStop -1
+        maxStop 1
+        springConstant 0.5
+        dampingConstant 0.5
+        staticFriction 0.01
+      }
+      endPoint Solid {
+        translation 0.6006302553253151 0.0011759799512666928 0
+        rotation 0 0 1 0.01221806399015243
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.12549019607843137 0.2901960784313726 0.5294117647058824
+            }
+            geometry DEF G_bTABLE Box {
+              size 0.2 0.01 0.1
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 0 1
+              anchor 0.1 0 0
+              staticFriction 0.01
+            }
+            endPoint Solid {
+              translation 0.25 0 0
+              rotation 0 0 1 0
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.9607843137254902 0.4745098039215686 0
+                    metalness 0
+                  }
+                  geometry DEF G_OTABLE Box {
+                    size 0.3 0.01 0.1
+                  }
+                }
+              ]
+              boundingObject USE G_OTABLE
+              physics Physics {
+              }
+            }
+          }
+        ]
+        boundingObject USE G_bTABLE
+        physics Physics {
+        }
+      }
+    }
+  ]
+}
